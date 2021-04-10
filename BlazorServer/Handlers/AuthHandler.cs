@@ -36,7 +36,7 @@ namespace BlazorServerAPI.Handlers
             var newUser = new User(user.Email, hashedPassword);
             newUser = await _userService.CreateUser(newUser);
             await _mailService.SendEmailAsync(new ConfirmRegistrationMailRequest(newUser.Email, newUser.Id)); //TODO: test this
-            return new MessageResponse("User created. Confirmation Mail Sent");
+            return new MessageResponse("User created. Confirmation Mail Sent.");
         }
 
         public async Task<IResponse> Login(User user)
@@ -57,6 +57,16 @@ namespace BlazorServerAPI.Handlers
                 return new LoginResponse(token: generateJwtToken(result));
             }
             throw new InvalidPasswordException(passwordVerificationResult.ToString());
+        }
+
+        public async Task<IResponse> Confirm(string userId)
+        {
+            var user = await _userService.ConfirmUser(userId);
+            if (user == null)
+            {
+                return new ErrorResponse(error: "Invalid confirmation link. Link may have expired.");
+            }
+            return new MessageResponse("User confirmed.");
         }
 
         private string generateJwtToken(User user)

@@ -64,5 +64,20 @@ namespace BlazorServerAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResponse(error: "Internal server error", errorMessage: e.ToString()).ToString());
             }
         }
+        
+        [HttpGet("confirm")]
+        public async Task<IActionResult> Confirm(string userId)
+        {
+            try
+            {
+                var response = await _handler.Confirm(userId);
+                return StatusCode(StatusCodes.Status202Accepted, response.ToString());
+            }
+            catch (ServerException e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResponse(error: "Internal server error", errorMessage: e.ToString()).ToString());
+            }
+            //TODO: Add general exception if needed. Here there-s a System.FormatException: '6071bd6e3f4909a7120824e21' is not a valid 24 digit hex string.
+        }
     }
 }
