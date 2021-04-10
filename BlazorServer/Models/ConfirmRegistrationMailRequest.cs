@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace BlazorServerAPI.Models
 {
+    // conflict generator
     public class ConfirmRegistrationMailRequest : MailRequest
     {
+        // conflict generator
         public ConfirmRegistrationMailRequest(string email, string userId) : base(toEmail: email, subject: "Confirm your account on Gird the Grid", body: ConfirmRegistrationBodyBuilder(userId), attachments: null)
         { }
 

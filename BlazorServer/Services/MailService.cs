@@ -13,8 +13,10 @@ using System.Threading.Tasks;
 
 namespace BlazorServerAPI.Services
 {
+    // conflict generator
     public class MailService : IMailService
     {
+        // conflict generator
         private readonly MailSettings _mailSettings;
 
         public MailService(IOptions<MailSettings> mailSettings)
