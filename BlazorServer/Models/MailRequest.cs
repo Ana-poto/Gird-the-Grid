@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 namespace BlazorServerAPI.Models
 {
-    // conflict generator
     public class MailRequest
     {
-        // conflict generator
         public string ToEmail { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }

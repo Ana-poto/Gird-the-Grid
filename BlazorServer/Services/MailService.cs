@@ -5,18 +5,13 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.Extensions.Options;
 using MimeKit;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BlazorServerAPI.Services
 {
-    // conflict generator
     public class MailService : IMailService
     {
-        // conflict generator
         private readonly MailSettings _mailSettings;
 
         public MailService(IOptions<MailSettings> mailSettings)

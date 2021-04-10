@@ -35,7 +35,7 @@ namespace BlazorServerAPI.Handlers
             }
             var newUser = new User(user.Email, hashedPassword);
             newUser = await _userService.CreateUser(newUser);
-            await _mailService.SendEmailAsync(new ConfirmRegistrationMailRequest(newUser.Email, newUser.Id)); //TODO: test this
+            await _mailService.SendEmailAsync(new ConfirmRegistrationMailRequest(newUser.Email, newUser.Id));
             return new MessageResponse("User created. Confirmation Mail Sent.");
         }
 
