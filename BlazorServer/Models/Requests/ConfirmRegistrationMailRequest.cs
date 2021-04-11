@@ -1,4 +1,4 @@
-﻿namespace BlazorServerAPI.Models
+﻿namespace BlazorServerAPI.Models.Requests
 {
     public class ConfirmRegistrationMailRequest : MailRequest
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
-namespace BlazorServerAPI.Models
+namespace BlazorServerAPI.Models.Requests
 {
     public class MailRequest
     {
